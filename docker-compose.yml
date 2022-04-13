@@ -6,3 +6,19 @@ services:
       - "3000:3000"
     environment:
       - PORT=3000
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+      - MONGO_INITDB_DATABASE=node-app
+    volumes:
+      - mongo-db:/data/db
+
+volumes:
+  mongo-db:
