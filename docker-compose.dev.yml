@@ -2,6 +2,9 @@ version: '3.8'
 
 services:
   node-app:
+    build:
+      context: .
+      dockerfile: Dockerfile_dev
     volumes:
       - .:/app
       - /app/node_modules
