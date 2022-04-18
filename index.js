@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const redis = require('redis');
 const session = require('express-session');
+const cors = require('cors');
 
 const {MONGO_URL, REDIS_URL, REDIS_PORT, SESSION_SECRET} = require("./config/config");
 
@@ -17,7 +18,7 @@ const authRouter = require('./routes/authRoutes');
 const app = express();
 
 app.enable('trust proxy');
-
+app.use(cors());
 app.use(express.json());
 
 app.use(
