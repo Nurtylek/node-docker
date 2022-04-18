@@ -23,7 +23,7 @@ app.use(
         store: new RedisStore({client: redisClient}),
         secret: SESSION_SECRET,
         cookie: {
-            maxAge: 60_000, // 1 week
+            maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
             httpOnly: true,
             secure: false,
             resave: false,
