@@ -16,6 +16,8 @@ const authRouter = require('./routes/authRoutes');
 
 const app = express();
 
+app.enable('trust proxy');
+
 app.use(express.json());
 
 app.use(
