@@ -6,6 +6,8 @@ const cors = require('cors');
 
 const {MONGO_URL, REDIS_URL, REDIS_PORT, SESSION_SECRET} = require("./config/config");
 
+console.log({MONGO_URL});
+
 let RedisStore = require('connect-redis')(session);
 let redisClient = redis.createClient({
     host: REDIS_URL,
