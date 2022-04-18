@@ -10,6 +10,7 @@ exports.signup = async (req, res, next) => {
     });
     user.save()
         .then(result => {
+            req.session.user = user;
             res.status(201).json({
                 message: 'User created!',
                 result: result
@@ -37,6 +38,7 @@ exports.login = async (req, res, next) => {
                         message: 'Auth failed'
                     });
                 }
+                req.session.user = user;
                 res.status(200).json({
                     message: 'Auth successful',
                     userId: user._id,
